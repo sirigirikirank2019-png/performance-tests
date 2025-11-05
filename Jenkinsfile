@@ -1,55 +1,18 @@
 pipeline {
     agent any
 
-    environment {
-        // Path to your Java JDK
-        JAVA_HOME = 'C:\\Program Files\\Java\\jdk-17'
-        // Path to JMeter
-        JMETER_HOME = 'C:\\Users\\sreek\\OneDrive\\Desktop\\Softwares\\apache-jmeter-5.6.3\\apache-jmeter-5.6.3'
-        // Prepend Java and JMeter to PATH
-        PATH = "${env.JAVA_HOME}\\bin;${env.JMETER_HOME}\\bin;C:\\Windows\\System32;${env.PATH}"
-    }
-
     stages {
+
         stage('Check Java') {
             steps {
-                bat '''
-                echo ===== Java Check =====
-                java -version
-                echo JAVA_HOME=%JAVA_HOME%
-                '''
+                bat 'java -version'
             }
         }
 
-        stage('Prepare Results Folder') {
+        stage('Run JMeter Tests') {
             steps {
-                bat '''
-                echo ===== Preparing Results Folder =====
-                if not exist results mkdir results
-                '''
+                bat '"C:\\Users\\sreek\\OneDrive\\Desktop\\Softwares\\apache-jmeter-5.6.3\\apache-jmeter-5.6.3\\bin\\jmeter.bat" -n -t tests/dummy_test.jmx -l results/result.jtl -e -o results/report'
             }
-        }
-
-        stage('Run JMeter Test') {
-            steps {
-                bat '''
-                echo ===== Running JMeter =====
-                cd "%WORKSPACE%"
-                jmeter.bat -n -t tests/SimplePipelineTest.jmx -l results/simpleresult.jtl  -e -o results/report -q config/user.properties
-                '''
-            }
-        }
-
-        stage('Post-Build') {
-            steps {
-                echo '=== JMeter Test Completed ==='
-            }
-        }
-    }
-
-    post {
-        always {
-            echo 'Pipeline finished.'
         }
     }
 }
