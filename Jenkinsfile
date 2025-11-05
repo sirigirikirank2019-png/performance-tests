@@ -19,5 +19,18 @@ pipeline {
                 bat '"C:\\Users\\sreek\\OneDrive\\Desktop\\Softwares\\apache-jmeter-5.6.3\\apache-jmeter-5.6.3\\bin\\jmeter.bat" -v'
             }
         }
+
+        stage('Clean old results') {
+            steps {
+                bat '''
+                if exist output (
+                    echo Deleting old output folder...
+                    rmdir /s /q output
+                ) else (
+                    echo No previous output folder found.
+                )
+                '''
+            }
+        }
     }
 }
