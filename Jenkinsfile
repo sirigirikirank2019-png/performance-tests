@@ -2,7 +2,8 @@ pipeline {
     agent any
 
     environment {
-        JMETER_HOME = "/opt/apache-jmeter"
+        JMETER_HOME = "C:\\Users\\sreek\\OneDrive\\Desktop\\Softwares\\apache-jmeter-5.6.3\\apache-jmeter-5.6.3"
+        PATH = "${env.JMETER_HOME}\\bin;${env.PATH}"
     }
 
     stages {
@@ -12,10 +13,9 @@ pipeline {
             }
         }
 
-        stage('Run JMeter Test') {
+        stage('Run JMeter Tests') {
             steps {
-                sh 'chmod +x run_test.sh'
-                sh './run_test.sh'
+                bat 'jmeter -n -t tests/api_test.jmx -l results/result.jtl -e -o results/report'
             }
         }
 
