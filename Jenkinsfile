@@ -21,18 +21,20 @@ pipeline {
         }*/
 
         stage('Clean old results') {
-            steps {
-                bat '''
-                if exist output (
-                    echo Deleting old output folder...
-                    rmdir /s /q output
-                    mkdir output
-                ) else (
-                    echo No previous output folder found.
-                    mkdir output
-                )
-                '''
-            }
-        }
+    steps {
+        bat '''
+        :: Check if "output" folder exists
+        if exist output (
+            echo Deleting old output folder...
+            rmdir /s /q output
+        ) else (
+            echo No previous output folder found.
+        )
+        :: Create the folder and placeholder file
+        mkdir output
+        type nul > output\\.gitkeep
+        '''
+    }
+}
     }
 }
