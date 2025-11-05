@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         JMETER_HOME = "C:\\Users\\sreek\\OneDrive\\Desktop\\Softwares\\apache-jmeter-5.6.3\\apache-jmeter-5.6.3"
+        JAVA_HOME = 'C:\\Program Files\\Java\\jdk-17'
         PATH = "${env.JMETER_HOME}\\bin;${env.PATH}"
     }
 
@@ -13,6 +14,15 @@ pipeline {
             }
         }
 
+        stage('Check Java') {
+            steps {
+                bat '''
+                java -version
+                echo JAVA_HOME=%JAVA_HOME%
+                '''
+            }
+        }
+            
         stage('Run JMeter Tests') {
             steps {
                 echo '=== Running JMeter Test ==='
