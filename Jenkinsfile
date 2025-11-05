@@ -35,7 +35,7 @@ pipeline {
                 bat '''
                 echo ===== Running JMeter =====
                 cd "%WORKSPACE%"
-                jmeter.bat -n -t tests/SimplePipelineTest.jmx -l results/simpleresult.jtl
+                jmeter.bat -n -t tests/SimplePipelineTest.jmx -l results/simpleresult.jtl  -e -o results/report -q config/user.properties
                 '''
             }
         }
