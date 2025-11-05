@@ -7,7 +7,7 @@ pipeline {
         // Path to JMeter
         JMETER_HOME = 'C:\\Users\\sreek\\OneDrive\\Desktop\\Softwares\\apache-jmeter-5.6.3\\apache-jmeter-5.6.3'
         // Prepend Java and JMeter to PATH
-        PATH = "${env.JAVA_HOME}\\bin;${env.JMETER_HOME}\\bin;${env.PATH}"
+        PATH = "${env.JAVA_HOME}\\bin;${env.JMETER_HOME}\\bin;C:\\Windows\\System32;${env.PATH}"
     }
 
     stages {
