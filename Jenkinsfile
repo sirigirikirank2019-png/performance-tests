@@ -40,7 +40,7 @@ pipeline {
         stage('Run JMeter Test') {
             steps {
                 bat '''
-                "C:/Users/sreek/OneDrive/Desktop/Softwares/apache-jmeter-5.6.3/apache-jmeter-5.6.3/bin/jmeter.bat" -n -t tests/SimplePipelineTest.jmx -l output/results.jtl -j output/jmeter.log -q C:/Users/sreek/.jenkins/workspace/performance-tests-pipeline/config/user.properties"
+                "C:/Users/sreek/OneDrive/Desktop/Softwares/apache-jmeter-5.6.3/apache-jmeter-5.6.3/bin/jmeter.bat" -n -t tests/SimplePipelineTest.jmx -l output/results.jtl -j output/jmeter.log -q config/user.properties"
                 '''
             }
         }
