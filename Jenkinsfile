@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         JAVA_HOME = "C:\\Program Files\\Java\\jdk-17"
-        JMETER_HOME = "C:\\Users\\sreek\\OneDrive\\Desktop\\Softwares\\apache-jmeter-5.6.3\\apache-jmeter-5.6.3"
+        //JMETER_HOME = "C:\\Users\\sreek\\OneDrive\\Desktop\\Softwares\\apache-jmeter-5.6.3\\apache-jmeter-5.6.3"
         PATH = "${env.JAVA_HOME}\\bin;${env.JMETER_HOME}\\bin;C:\\Windows\\System32;${env.PATH}"
     }
 
