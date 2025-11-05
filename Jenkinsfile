@@ -8,17 +8,17 @@ pipeline {
     }
 
     stages {
-        ::stage('Check Java') {
+        /*stage('Check Java') {
             steps {
                 bat 'java -version'
             }
         }
 
-        ::stage('Check JMeter') {
+        stage('Check JMeter') {
             steps {
                 bat '"C:\\Users\\sreek\\OneDrive\\Desktop\\Softwares\\apache-jmeter-5.6.3\\apache-jmeter-5.6.3\\bin\\jmeter.bat" -v'
             }
-        }
+        }*/
 
         stage('Clean old results') {
             steps {
