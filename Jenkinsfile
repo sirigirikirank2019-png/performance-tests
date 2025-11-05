@@ -41,7 +41,7 @@ pipeline {
             steps {
                 bat '''
                 echo Running JMeter test...
-                "C:\\Users\\sreek\\OneDrive\\Desktop\\Softwares\\apache-jmeter-5.6.3\\apache-jmeter-5.6.3\\bin\\jmeter.bat" -n -t tests/SimplePipelineTest.jmx -l output\results.jtl -j output\jmeter.log"
+                "C:\\Users\\sreek\\OneDrive\\Desktop\\Softwares\\apache-jmeter-5.6.3\\apache-jmeter-5.6.3\\bin\\jmeter.bat" -n -t tests\SimplePipelineTest.jmx -l output\results.jtl -j output\jmeter.log"
                 echo JMeter test completed.
                 '''
             }
