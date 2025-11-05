@@ -15,7 +15,7 @@ pipeline {
 
         stage('Run JMeter Tests') {
             steps {
-                bat 'jmeter -n -t tests/api_test.jmx -l results/result.jtl -e -o results/report'
+                bat '"C:\\Users\\sreek\\OneDrive\\Desktop\\Softwares\\apache-jmeter-5.6.3\\apache-jmeter-5.6.3\\bin\\jmeter.bat" -n -t tests/api_test.jmx -l results/result.jtl -e -o results/report'
             }
         }
 
