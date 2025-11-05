@@ -26,8 +26,10 @@ pipeline {
                 if exist output (
                     echo Deleting old output folder...
                     rmdir /s /q output
+                    mkdir output
                 ) else (
                     echo No previous output folder found.
+                    mkdir output
                 )
                 '''
             }
